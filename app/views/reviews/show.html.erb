@@ -1,0 +1,25 @@
+<h1> Toutes mes reviews </h1>
+<div>
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Note</th>
+      <th>Avis</th>
+      <th>Date</th>
+      <th> Heure </th>
+      <th>  </th>
+    </tr>
+    <% @review.each do |review|%>
+      <tr>
+        <td> <%= review.user.email %></td>
+        <td> <%= review.rating %> </td>
+        <td><%= review.content %></td>
+        <td><%= review.created_at.strftime("%Y-%m-%d")%></td>
+        <td><%= review.created_at.strftime("%H:%M")%></td>
+        <td> <%= link_to "Consulter", chambre_path(review.chambre_id) %> </td>
+        <td> <%#= link_to "Supprimer", new_chambre_review_path(review.chambre_id), method: :delete  %> </td>
+
+      </tr>  
+    <%end%>
+  </table>
+</div>

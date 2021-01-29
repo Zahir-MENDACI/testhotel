@@ -1,0 +1,24 @@
+<h1> Liste des utilisateurs </h1>
+
+<div>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Date de creation</th>
+      <th>Admin</th>
+      <th>  </th>
+      <th>  </th>
+    </tr>
+    <% @utilisateur.each do |u|%>
+      <tr>
+        <td> <%= u.id %></td>
+        <td> <%= u.email %> </td>
+        <td> <%= u.created_at %></td>
+        <td> <%= u.admin%></td>
+        <td> <%= link_to "Ajouter", "/pages/change?id_u=#{u.id}" if u.admin != true %> </td>
+        <td> <%= link_to "Supprimer", "/pages/change?id_u=#{u.id}" if u.admin == true%> </td>
+      </tr>  
+    <%end%>
+  </table>
+</div>

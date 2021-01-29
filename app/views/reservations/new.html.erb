@@ -1,0 +1,11 @@
+<div class = "form">
+	<%= simple_form_for @reservation do |r|%>
+		<%= "Date de debut : " %>
+        <%= r.input :date_d, label: false, as: :date, html5: true, :input_html => { :id => "form_r"} %>
+		<%= "Date de fin : " %>
+        <%= r.input :date_f, label: false, as: :date, html5: true, :input_html => { :id => "form_r"}  %>
+		<%= "Type de chambre : " %>
+        <%= r.select :type_c, Chambre.pluck(:type_c), {id: "form_r"}  %>
+        <%= r.submit %>
+	<% end %>
+</div>
